@@ -49,7 +49,7 @@ function _log() {
     level="${3-${FUNCNAME[1]}}"
     date_time=$(_date_time)
     function_name="${FUNCNAME[2]}"
-    _echo "[$date_time][$level]($function_name:$line) $msg"
+    _echo "##[$level][$date_time]($function_name:$line) $msg"
 }
 
 function _CTX() {
