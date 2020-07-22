@@ -45,10 +45,11 @@ function _date_time() {
 function _log() {
     local function_name date_time msg level
     msg="$1"
-    level="${2-${FUNCNAME[1]}}"
+    line="${2:-000}"
+    level="${3-${FUNCNAME[1]}}"
     date_time=$(_date_time)
     function_name="${FUNCNAME[2]}"
-    _echo "[$date_time][$level]($function_name) $msg"
+    _echo "[$date_time][$level]($function_name:$line) $msg"
 }
 
 function _CTX() {
@@ -86,17 +87,29 @@ function EXIT() {
 }
 
 function DEBUG() {
-    _log "$1"
+    _log "$1" "$2"
 }
 
 function INFO() {
-    _log "$1"
+    _log "$1" "$2"
 }
 
 function WARN() {
-    _log "$1"
+    _log "$1" "$2"
 }
 
 function ERROR() {
-    _log "$1"
+    _log "$1" "$2"
+}
+
+function COMMAND() {
+    _log "$1" "$2"
+}
+
+function GROUP() {
+    _log "$1" "$2"
+}
+
+function ENDGROUP() {
+    _log ""
 }
