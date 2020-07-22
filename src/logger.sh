@@ -39,11 +39,7 @@ function _echo() {
 }
 
 function _date_time() {
-    date +"%Y/%m/%d %H:%M:%S"
-}
-
-function _utc_date_time() {
-    date -u +"%Y/%m/%dT%H:%M:%SZ"
+    date --rfc-3339=seconds
 }
 
 function _log() {
